@@ -1,0 +1,143 @@
+Student Report of Vishnu are as follows:
+--------------------------------------------
+Basic Details:
+--------------
+Name: Vishnu
+USN: 1CE25CS176
+Semester: 1
+Academic Performance:
+---------------------
+Subject 1 Marks: 87
+Subject 2 Marks: 89
+Subject 3 Marks: 92
+Subject 4 Marks: 95
+Subject 5 Marks: 96
+---------------------
+Total Marks Scored:459
+Total Percentage:91.8
+--------------------------------------------
+Student Report of Adithya are as follows:
+--------------------------------------------
+Basic Details:
+--------------
+Name: Adithya
+USN: 1CE25CS189
+Semester: 1
+Academic Performance:
+---------------------
+Subject 1 Marks: 89
+Subject 2 Marks: 92
+Subject 3 Marks: 87
+Subject 4 Marks: 95
+Subject 5 Marks: 92
+---------------------
+Total Marks Scored:455
+Total Percentage:91
+---------------------------------------------Student Report of vINAY are as follows:
+--------------------------------------------
+Basic Details:
+--------------
+Name: vINAY
+USN: cls
+Semester: 0
+Academic Performance:
+---------------------
+Subject 1 Marks: 6422280
+Subject 2 Marks: 1975684125
+Subject 3 Marks: 4201168
+Subject 4 Marks: 6422356
+Subject 5 Marks: 4201259
+---------------------
+Total Marks Scored:1996931188
+Total Percentage:3.99386e+008
+--------------------------------------------
+Student Report of  are as follows:
+--------------------------------------------
+Basic Details:
+--------------
+Name: 
+USN: 
+Semester: 4201168
+Academic Performance:
+---------------------
+Subject 1 Marks: 0
+Subject 2 Marks: 1975684078
+Subject 3 Marks: 16657424
+Subject 4 Marks: 6422204
+Subject 5 Marks: 1975750469
+---------------------
+Total Marks Scored:-320453121
+Total Percentage:-6.40906e+007
+--------------------------------------------
+Student Report of cls are as follows:
+--------------------------------------------
+Basic Details:
+--------------
+Name: cls
+USN: cls
+Semester: 0
+Academic Performance:
+---------------------
+Subject 1 Marks: 6422280
+Subject 2 Marks: 1975684125
+Subject 3 Marks: 4201168
+Subject 4 Marks: 6422356
+Subject 5 Marks: 4201259
+---------------------
+Total Marks Scored:1996931188
+Total Percentage:3.99386e+008
+--------------------------------------------
+Student Report of  are as follows:
+--------------------------------------------
+Basic Details:
+--------------
+Name: 
+USN: 
+Semester: 4201168
+Academic Performance:
+---------------------
+Subject 1 Marks: 0
+Subject 2 Marks: 1975684078
+Subject 3 Marks: 17902608
+Subject 4 Marks: 6422204
+Subject 5 Marks: 1975750469
+---------------------
+Total Marks Scored:-319207937
+Total Percentage:-6.38416e+007
+--------------------------------------------
+Student Report of r are as follows:
+--------------------------------------------
+Basic Details:
+--------------
+Name: r
+USN: cls
+Semester: 0
+Academic Performance:
+---------------------
+Subject 1 Marks: 6422280
+Subject 2 Marks: 1975684125
+Subject 3 Marks: 4201168
+Subject 4 Marks: 6422356
+Subject 5 Marks: 4201259
+---------------------
+Total Marks Scored:1996931188
+Total Percentage:3.99386e+008
+--------------------------------------------
+Student Report of  are as follows:
+--------------------------------------------
+Basic Details:
+--------------
+Name: 
+USN: 
+Semester: 4201168
+Academic Performance:
+---------------------
+Subject 1 Marks: 0
+Subject 2 Marks: 1975684078
+Subject 3 Marks: 17509392
+Subject 4 Marks: 6422204
+Subject 5 Marks: 1975750469
+---------------------
+Total Marks Scored:-319601153
+Total Percentage:-6.39202e+007
+--------------------------------------------
