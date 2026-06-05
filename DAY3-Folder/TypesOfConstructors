@@ -1,0 +1,319 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+class Library
+{
+private:
+// Books and copies are mapped using array index
+    static string books[50];
+    static int copies[50];
+    static int totalBooks;
+    static int memberCount;
+
+
+    string member_id;
+    string books_borrowed[10];
+    int no_of_books_borrowed;
+
+
+    public:
+    string name;
+    string email;
+    string phone;
+    string address;
+   
+    // Default Constructor
+    Library()
+    {
+        member_id = "LIB-000";
+        name = "N/A";
+        email = "N/A";
+        phone = "N/A";
+        address = "N/A";
+       
+        no_of_books_borrowed = 0;
+
+
+        cout << "\nDefault Member Details\n";
+        cout << "------------------------\n";
+        cout << "Member ID : " << member_id << endl;
+        cout << "Name      : " << name << endl;
+        cout << "Email     : " << email << endl;
+        cout << "Phone     : " << phone << endl;
+        cout << "Address   : " << address << endl;
+        cout << "Books Borrowed : " << no_of_books_borrowed << endl;
+    }
+   
+    // Parameterized Constructor
+    // New member will create and also intialize the member details
+    Library(string memberName,
+            string memberEmail,
+            string memberPhone,
+            string memberAddress)
+    {
+        memberCount++;
+
+
+        // Concatenation of Member ID to prefix:
+        // LIB-00 + memberCount
+        // LIB-00 + 1 => LIB-001
+        if (memberCount < 10)
+            member_id = "LIB-00" + to_string(memberCount);
+        else if (memberCount < 100)
+            member_id = "LIB-0" + to_string(memberCount);
+        else
+            member_id = "LIB-" + to_string(memberCount);
+
+
+        name = memberName;
+        email = memberEmail;
+        phone = memberPhone;
+        address = memberAddress;
+
+
+        // IMPORTANT
+        no_of_books_borrowed = 0;
+
+
+        cout << "\nMember Created Successfully!\n";
+        cout << "Member ID : " << member_id << endl;
+    }
+
+
+    string getMemberId()
+    {
+        return member_id;
+    }
+
+
+    // Add Book (Shared Library)
+    static void addBook(string book, int noOfCopies)
+    {
+        books[totalBooks] = book;
+        copies[totalBooks] = noOfCopies;
+        totalBooks++;
+
+
+        cout << book << " added successfully.\n";
+    }
+
+
+    // List Books
+    static void listBooks()
+    {
+        cout << "\nAvailable Books\n";
+        cout << "------------------------\n";
+
+
+        if (totalBooks == 0)
+        {
+            cout << "No books available.\n";
+            return;
+        }
+
+
+        // Array Traversal
+        for (int i = 0; i < totalBooks; i++)
+        {
+            cout << i + 1 << ". "
+                 << books[i]
+                 << " (Copies: "
+                 << copies[i]
+                 << ")\n";
+        }
+    }
+
+
+    // Borrow Book
+    void borrowBook(string book)
+    {
+        // Linear Search for searching the book
+        for (int i = 0; i < totalBooks; i++)
+        {
+            if (books[i] == book)
+            {
+                if (copies[i] > 0)
+                {
+                    copies[i]--;
+
+
+                    books_borrowed[no_of_books_borrowed++] = book;
+
+
+                    cout << book << " borrowed successfully.\n";
+                    return;
+                }
+                else
+                {
+                    cout << "No copies available.\n";
+                    return;
+                }
+            }
+        }
+
+
+        cout << "Book not found.\n";
+    }
+
+
+    // Return Book
+    void returnBook(string book)
+    {
+        bool found = false;
+
+
+        for (int i = 0; i < no_of_books_borrowed; i++)
+        {
+            if (books_borrowed[i] == book)
+            {
+                for (int j = i; j < no_of_books_borrowed - 1; j++)
+                {
+                    // Once book returned, we need to change the book position
+                    // If 2 books borrowed:
+                    // 0: Book 1
+                    // 1: Book 2
+                   
+                    // If Book 1 is returned:
+                    // 0: Null
+                    // 1: Book 2
+                    // => 0: Book 2
+                    books_borrowed[j] = books_borrowed[j + 1];
+                }
+
+
+                no_of_books_borrowed--;
+                found = true;
+                break;
+            }
+        }
+
+
+        if (!found)
+        {
+            cout << "Book not borrowed by this member.\n";
+            return;
+        }
+
+
+        // Copies need to be incremented
+        for (int i = 0; i < totalBooks; i++)
+        {
+            if (books[i] == book)
+            {
+                copies[i]++;
+                break;
+            }
+        }
+
+
+        cout << book << " returned successfully.\n";
+    }
+
+
+    // Show Borrowed Books
+    void showBorrowedBooks()
+    {
+        cout << "\nBorrowed Books by " << name << endl;
+        cout << "------------------------\n";
+
+
+        if (no_of_books_borrowed == 0)
+        {
+            cout << "No books borrowed.\n";
+            return;
+        }
+
+
+        for (int i = 0; i < no_of_books_borrowed; i++)
+        {
+            cout << i + 1 << ". " << books_borrowed[i] << endl;
+        }
+    }
+
+
+    // Display Member Information
+    void displayMemberInfo()
+    {
+        cout << "\nMember Details\n";
+        cout << "------------------------\n";
+        cout << "Member ID : " << member_id << endl;
+        cout << "Name      : " << name << endl;
+        cout << "Email     : " << email << endl;
+        cout << "Phone     : " << phone << endl;
+        cout << "Address   : " << address << endl;
+        cout << "Books Borrowed : " << no_of_books_borrowed << endl;
+    }
+};
+
+
+// Static Variable Definitions
+int Library::memberCount = 0;
+string Library::books[50];
+int Library::copies[50];
+int Library::totalBooks = 0;
+
+
+int main()
+{
+    // Books are added by Librarian cannot be added by members
+    // So we are using Class to add books
+    // (::) Scope Resolution operator is used to call the member function using Class itself
+    Library::addBook("C Programming", 5);
+    Library::addBook("C++ Programming", 4);
+    Library::addBook("Java Programming", 3);
+    Library::addBook("Python Programming", 2);
+
+
+    // Parameterized Constructor is called by member1 & meember2 pobjects as the parameters matched
+    Library member1(
+        "Akshay Rao",
+        "akshay@gmail.com",
+        "9856235123",
+        "Bengaluru");
+
+
+    Library member2(
+        "Ajay Rao",
+        "ajay@gmail.com",
+        "8956525845",
+        "Tumakuru");
+
+
+    // No parameters passed by member3 so default constructor called here
+    Library member3;
+
+
+    Library::listBooks();
+
+
+    member1.borrowBook("C Programming");
+    // Book Not found condition
+    member1.borrowBook("C++ Programming for Beginners");
+    member1.borrowBook("Java Programming");
+   
+    member2.borrowBook("Python Programming");
+   
+    cout << "\nAfter Borrowing:\n";
+    Library::listBooks();
+   
+    member1.showBorrowedBooks();
+    member2.showBorrowedBooks();
+   
+    // Book Not found condition
+    member1.returnBook("C++ Programming");
+    member1.returnBook("Java Programming");
+
+
+    cout << "\nAfter Returning:\n";
+    // We are calling the member function using Class
+    Library::listBooks();
+
+
+    member1.displayMemberInfo();
+    member2.displayMemberInfo();
+    member3.displayMemberInfo();
+}
+
+
